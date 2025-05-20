@@ -87,7 +87,7 @@ class BookControllerTest {
 
     @Test
     void testCreateInvalidBook() throws Exception {
-        Book invalid = new Book(null, "", "", 1000); // Título vacío, autor vacío, año inválido
+        Book invalid = new Book(null, "", "", 1000); 
 
         mockMvc.perform(post("/api/books")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -99,7 +99,7 @@ class BookControllerTest {
     @Test
     void testUpdateInvalidBook() throws Exception {
         Book existing = repository.save(new Book(null, "Título válido", "Autor válido", 2010));
-        Book invalid = new Book(null, "", "", 1000); // Nuevos datos inválidos
+        Book invalid = new Book(null, "", "", 1000);
 
         mockMvc.perform(put("/api/books/{id}", existing.getId())
                         .contentType(MediaType.APPLICATION_JSON)
