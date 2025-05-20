@@ -1,0 +1,44 @@
+
+# Crear un libro (POST)
+curl -X POST http://localhost:8080/api/books \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Cien años de soledad",
+    "author": "Gabriel García Márquez",
+    "year": 1967
+}'
+
+curl -X POST http://localhost:8080/api/books \
+  -H "Content-Type: application/json" \
+  -d '{
+     "title": "El problema de los tres cuerpos",
+     "author": "Liu Cixin",
+     "year": 2006
+}'
+
+# Obtener todos los libros (GET)
+curl http://localhost:8080/api/books
+
+# Obtener un libro por ID (GET)
+curl http://localhost:8080/api/books/1
+
+# Actualizar un libro (PUT)
+curl -X PUT http://localhost:8080/api/books/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Cien años de soledad (Edición revisada)",
+    "author": "Gabriel García Márquez",
+    "year": 1968
+}'
+
+# Eliminar un libro (DELETE)
+curl -X DELETE http://localhost:8080/api/books/1
+
+# Intentar crear un libro con datos inválidos (POST con error)
+curl -X POST http://localhost:8080/api/books \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "",
+    "author": "",
+    "year": 1400
+}'
